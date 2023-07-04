@@ -276,7 +276,7 @@ bool CmplogSwitches::hookInstrs(Module &M) {
       unsigned int  max_size = Val->getType()->getIntegerBitWidth(), cast_size;
       unsigned char do_cast = 0;
 
-      if (!SI->getNumCases() || max_size < 16) {
+      if (!SI->getNumCases() || max_size < 8) {
 
         // if (!be_quiet) errs() << "skip trivial switch..\n";
         continue;

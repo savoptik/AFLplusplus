@@ -469,7 +469,7 @@ bool CmpLogInstructions::hookInstrs(Module &M) {
 
       }
 
-      if (!max_size || max_size < 16) {
+      if (!max_size || max_size < 8) {
 
         // fprintf(stderr, "too small\n");
         continue;
