@@ -74,7 +74,7 @@ double compute_weight(afl_state_t *afl, struct queue_entry *q,
   }
 
   if (likely(afl->schedule < RARE)) { weight *= (avg_exec_us / q->exec_us); }
-  weight *= (log(q->bitmap_size) / avg_bitmap_size);
+  weight *= (1 + log(q->bitmap_size << 1) / avg_bitmap_size);
   weight *= (1 + (q->tc_ref / avg_top_size));
 
   if (unlikely(weight < 0.1)) { weight = 0.1; }
