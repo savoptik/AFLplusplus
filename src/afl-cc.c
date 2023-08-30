@@ -385,6 +385,15 @@ static u8 fortify_set = 0, asan_set = 0, x_set = 0, bit_mode = 0,
 
 static void process_params(u32 argc, char **argv) {
 
+printf("print argv in process_params()\n");
+fflush(stdout);
+  for (size_t i = 0; i < argc; i++)
+  {
+    printf("parm #%d -- %s\n", i, argv[i]);
+    fflush(stdout);
+  }
+  
+
   if (cc_par_cnt + argc >= 1024) { FATAL("Too many command line parameters"); }
 
   if (lto_mode && argc > 1) {
